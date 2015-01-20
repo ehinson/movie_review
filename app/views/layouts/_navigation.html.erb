@@ -1,1 +1,18 @@
-_navigation.html.erb
+<nav class="navbar">
+  <div class="navigation">
+    <%= link_to 'Movierin', root_path, class: "brand" %>
+    
+    <ul class="nav">
+    <%  if logged_in?  %>
+      <li>Welcome <%= current_user.username  %></li>
+      <li><span class="title"><%= link_to "New Movie", new_movie_path  %></span></li>
+      <li><span class="title"><%= link_to "Account", edit_user_path(current_user)  %></li>
+      <li><button><%= link_to "Sign Out", logout_path  %></button></li>
+      <%  else  %>
+      <li><button><%= link_to "Sign Up", register_path  %></button></li>
+      <li><button><%= link_to "Sign In", login_path  %></button></li>
+    <%  end  %>
+    </ul>
+  </div>
+</nav>
+<hr>

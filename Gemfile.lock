@@ -46,6 +46,8 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -57,6 +59,8 @@ GEM
     json (1.8.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    masonry-rails (0.2.4)
+      railties
     method_source (0.8.2)
     mime-types (2.4.3)
     minitest (5.5.1)
@@ -129,8 +133,10 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.5)
   coffee-rails (~> 4.0.0)
+  font-awesome-rails (~> 4.2.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  masonry-rails
   paperclip (~> 4.2)
   pry
   rails (= 4.1.8)

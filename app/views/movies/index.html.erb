@@ -1,62 +1,27 @@
-<h1>Listing movies</h1>
+<%= render 'layouts/navigation', title: 'Movies' %>
+<%= render 'layouts/content_title', title: 'Movies' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Movie length</th>
-      <th>Director</th>
-      <th>Rating</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.movie_length %></td>
-        <td><%= movie.director %></td>
-        <td><%= movie.rating %></td>
-        <td><%= image_tag movie.image.url(:medium)  %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-    <div class="main">
-      <div class="container">
-        <div class="row">
+<div class= "masonry js-masonry" id="masonry-container">
+      <% @movies.each do |movie| %>
+        <div class="item movie">
+          <div class="image">
+            <%= image_tag movie.image.url(:medium)  %>
+          </div><!--image-->
+          <div class="content">
+            <%= movie.title %><br>
+            <%= movie.description %><br>
+            <%= movie.movie_length %><br>
+            <%= movie.director %><br>
+            <%= movie.rating %><br>
+            <%= link_to 'Show', movie %>
+            <%  if logged_in?  %>
+              <%= link_to 'Edit', edit_movie_path(movie) %>
+              <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%  end  %>
+          </div><!--content-->
         </div>
-      </div>
-    </div>
+        <%  end  %>
+</div>
 
-    <div class="supporting">
-      <div class="container">
-        <div class="row">
-        </div>        
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="container">
-        <div class="row">
-        </div>        
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-        </div>        
-      </div>
-    </div>
 
 <%= link_to 'New Movie', new_movie_path %>

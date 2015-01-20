@@ -12,6 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/jquery.masonry
+//= require masonry/jquery.imagesloaded.min
 //= require turbolinks
 //= require_tree .
+
+$('#masonry-container').imagesLoaded( function() {
+  $('#masonry-container').masonry({
+      itemSelector: '.item',
+      gutterWidth: 40,
+      isFitWidth: true
+      columnWidth: function( containerWidth ) {
+        return containerWidth / 4;
+      }
+  // images have loaded
+  });
+
+});
 

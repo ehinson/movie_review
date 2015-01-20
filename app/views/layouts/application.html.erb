@@ -13,12 +13,12 @@
   </head>
 
   <body>
-    <div class= "container">
+    
       <%  flash.each do |name, msg|  %>
         <%= content_tag(:div, msg, class: "alert alert-info")  %>
       <%  end  %>
 
     <%= yield %>
-    </div>
+    <script src="/assets/masonry.pkgd.min.js"></script>
   </body>
 </html>

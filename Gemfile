@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'masonry-rails'
+gem 'font-awesome-rails', '~> 4.2.0.0'
 gem 'paperclip', '~> 4.2'
 gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1.5'
