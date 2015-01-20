@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
