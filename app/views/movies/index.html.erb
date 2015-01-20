@@ -1,26 +1,33 @@
 <%= render 'layouts/navigation', title: 'Movies' %>
 <%= render 'layouts/content_title', title: 'Movies' %>
 
-<div class= "masonry js-masonry" id="masonry-container">
-      <% @movies.each do |movie| %>
-        <div class="item movie">
-          <div class="image">
-            <%= image_tag movie.image.url(:medium)  %>
-          </div><!--image-->
-          <div class="content">
-            <%= movie.title %><br>
-            <%= movie.description %><br>
-            <%= movie.movie_length %><br>
-            <%= movie.director %><br>
-            <%= movie.rating %><br>
-            <%= link_to 'Show', movie %>
-            <%  if logged_in?  %>
-              <%= link_to 'Edit', edit_movie_path(movie) %>
-              <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <%  end  %>
-          </div><!--content-->
-        </div>
+<%  if !logged_in?  %>
+<div class ="jumbotron">
+  <h1>Your Favorite Movies. Reviewed.</h1>
+  <p>"Who would have thought it, Flask!" cried Stubb; "if I had but one leg you would not catch me in a boat, unless maybe to stop the plug-hole with my timber toe. Oh! he's a wonderful old man!"</p>
+  <p><%= link_to "Sign Up & Write a Review", new_user_path, class: "btn btn-primary btn-lg"  %></p>
+</div>
+<%  end  %>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+  <div class="col-xs-6 col-md-3">
+    <div class="thumbnail">
+        <%= link_to (image_tag movie.image.url(:medium), class: "image"), movie  %>
+      </div>
+        <%= movie.title %><br>
+        <%= movie.description %><br>
+        <%= movie.movie_length %> 
+        <%= movie.director %> 
+        <%= movie.rating %><br>
+        <%= link_to 'Show', movie %>
+        <%  if logged_in?  %>
+        <%= link_to 'Edit', edit_movie_path(movie) %>
+        <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%  end  %>
+
+  </div>
+  <%  end  %>
 </div>
 
 

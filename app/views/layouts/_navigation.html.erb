@@ -1,18 +1,25 @@
-<nav class="navbar">
-  <div class="navigation">
-    <%= link_to 'Movierin', root_path, class: "brand" %>
-    
-    <ul class="nav">
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Movierin', root_path, class: "navbar-brand" %>
+    </div>
+     <ul class="nav navbar-nav">
     <%  if logged_in?  %>
-      <li>Welcome <%= current_user.username  %></li>
-      <li><span class="title"><%= link_to "New Movie", new_movie_path  %></span></li>
-      <li><span class="title"><%= link_to "Account", edit_user_path(current_user)  %></li>
-      <li><button><%= link_to "Sign Out", logout_path  %></button></li>
+      <li class="navbar-text">Welcome 
+        <%= link_to edit_user_path(current_user) do %>
+        <%= current_user.username  %>
+        <%  end  %>
+      </li>
+      <li><%= link_to "New Movie", new_movie_path, class: "btn btn-default"  %></li>
+      <li><%= link_to "Sign Out", logout_path, class: "btn btn-default"  %></li>
       <%  else  %>
-      <li><button><%= link_to "Sign Up", register_path  %></button></li>
-      <li><button><%= link_to "Sign In", login_path  %></button></li>
+      <li><%= link_to "Sign Up", register_path, class: "btn btn-default"  %></li>
+      <li><%= link_to "Sign In", login_path, class: "btn btn-default"  %></li>
     <%  end  %>
     </ul>
   </div>
 </nav>
+
 <hr>
