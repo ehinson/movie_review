@@ -1,0 +1,28 @@
+<div class="row">
+  <% @movies.each do |movie| %>
+  <div class="col-xs-6 col-md-3 ">
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="thumbnail">
+          <%= link_to (image_tag movie.image.url(:medium), class: "image"), movie  %>
+        </div>
+       <div class="star-rating" data-score= <%= @avg_review %>></div>
+      </div>
+      <div class="panel-body">
+        <%= movie.title %><br>
+        <%= movie.description.truncate(50, separator: /\s/, omission: '...(read more)') %><br>
+        <%= movie.movie_length %> 
+        <%= movie.director %> 
+        <%= movie.rating %><br>
+        <%= link_to 'Show', movie %>
+        <%  if logged_in?  %>
+        <%= link_to 'Edit', edit_movie_path(movie) %>
+        <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%  end  %>
+      </div>
+    </div>
+  </div>
+  <%  end  %>
+</div>
