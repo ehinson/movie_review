@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy]
 
   resources :movies do
-
+    collection do
+      get 'search'
+    end
+    
     resources :reviews, except: [:index, :show]
 
   end
