@@ -19,7 +19,7 @@
         <div class="thumbnail">
           <%= link_to (image_tag movie.image.url(:medium), class: "image"), movie  %>
         </div>
-        <h3 class="panel-title">Werd.</h3>
+       <div class="star-rating" data-score= <%= @avg_review %>></div>
       </div>
       <div class="panel-body">
         <%= movie.title %><br>
@@ -40,3 +40,13 @@
 
 
 <%= link_to 'New Movie', new_movie_path %>
+
+<script>
+  $("div.star-rating").raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
