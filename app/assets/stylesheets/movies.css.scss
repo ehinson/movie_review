@@ -1,3 +1,17 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.columns {
+  column-width: 320px;
+  column-gap: 15px;
+  column-count: 3;
+  column-fill: auto;
+  -webkit-column-width: 320px;
+  -webkit-column-gap: 15px;
+  -webkit-column-count: 3px;
+  -webkit-column-fill: auto;
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+}
