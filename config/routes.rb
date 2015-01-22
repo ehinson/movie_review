@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :reviews, except: [:index, :show]
-
   get '/register', to: 'users#new'
-
   get '/login', to: 'sessions#new'
-
   post '/login', to: 'sessions#create'
-
   get '/logout', to: 'sessions#destroy'
+
 
   resources :users, except: [:destroy]
 
-  resources :movies
+  resources :movies do
+
+    resources :reviews, except: [:index, :show]
+
+  end
 
   root to: "movies#index"
 
