@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :movies
+  has_many :reviews, dependent: :destroy
 
   has_secure_password validations: false
 

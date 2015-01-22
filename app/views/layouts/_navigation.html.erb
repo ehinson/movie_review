@@ -15,7 +15,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <%  if logged_in?  %>
+      <%  if logged_in?  %>
       <p class="navbar-text navbar-right">Welcome 
         <%= link_to edit_user_path(current_user) do %>
         <%= current_user.username  %>
@@ -23,18 +23,18 @@
       </p>
       <%  end  %>
       <ul class="nav navbar-nav navbar-right">
-      
+        
         <%  if logged_in?  %>
-      
-      <li><%= link_to "New Movie", new_movie_path, class: "btn navbar-btn"  %></li>
-      <li><%= link_to "Sign Out", logout_path, class: "btn navbar-btn"  %></li>
-      <%  else  %>
-      <li><%= link_to "Sign Up", register_path, class: "btn navbar-btn"  %></li>
-      <li><%= link_to "Sign In", login_path, class: "btn navbar-btn"  %></li>
-    <%  end  %>
-          </ul>
-        </li>
+        
+        <li><%= link_to "New Movie", new_movie_path, class: "btn navbar-btn"  %></li>
+        <li><%= link_to "Sign Out", logout_path, class: "btn navbar-btn"  %></li>
+        <%  else  %>
+        <li><%= link_to "Sign Up", register_path, class: "btn navbar-btn"  %></li>
+        <li><%= link_to "Sign In", login_path, class: "btn navbar-btn"  %></li>
+        <%  end  %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </li>
+  </ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
 </nav>

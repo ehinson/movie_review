@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :reviews, except: [:index, :show]
+
   get '/register', to: 'users#new'
 
   get '/login', to: 'sessions#new'
