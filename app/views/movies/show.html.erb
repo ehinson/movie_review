@@ -1,3 +1,5 @@
+<%= render 'layouts/navigation', title: 'Movies' %>
+<h1><%= render 'layouts/content_title', title: @title %></h1>
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
@@ -39,10 +41,10 @@
 
       </div>
       <div class="col-md-7 col-md-offset-1">
-        <h1 class="review-title"><%= @movie.title  %></h1>
+        <h5 class="review-title"><%= @movie.title  %></h5>
         <p><%= @movie.description  %></p>
         <%  if @reviews.blank?  %>
-          <h3>There are no reviews yet. Would you like to <%= link_to new_movie_review_path(@movie) do %> add the first? <%  end  %></h3>
+          <p>There are no reviews yet. Would you like to <%= link_to new_movie_review_path(@movie) do %> add the first? <%  end  %></p>
         <%  else  %>
           <%  @reviews.each do |review|  %>
             <div class="reviews">

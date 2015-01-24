@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @title = @movie.title
     @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
     
     if @reviews.blank?
