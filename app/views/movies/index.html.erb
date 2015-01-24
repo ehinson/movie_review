@@ -1,5 +1,4 @@
 <%= render 'layouts/navigation', title: 'Movies' %>
-<%= render 'layouts/content_title', title: 'Movies' %>
 
 <%  if !logged_in?  %>
 <div class ="jumbotron">
@@ -9,37 +8,34 @@
 </div>
 <%  end  %>
 
-<div class="row">
+   <ul class="mr-grid">
   <% @movies.each do |movie| %>
-  <div class="col-xs-6 col-md-3 ">
-
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="thumbnail">
-          <%= link_to (image_tag movie.image.url(:medium), class: "image"), movie  %>
-        </div>
-       <div class="star-rating" data-score= <%= @avg_review %>></div>
-      </div>
-      <div class="panel-body">
-        <%= movie.title %><br>
-        <%= movie.description.truncate(50, separator: /\s/, omission: '...(read more)') %><br>
+       <li>
+         <%= link_to movie_path(movie) do %>
+           <%=image_tag movie.image.url(:medium), class: "image" %>
+           <div class="mr-info">
+           <div class="movie-text">
+        <h3><%= movie.title.truncate(20, separator: /\s/, omission: '...') %></h3>
+        <p><%= movie.description.truncate(50, separator: /\s/, omission: '...(more)') %><br>
         <%= movie.movie_length %> 
         <%= movie.director %> 
         <%= movie.rating %><br>
-        <%= link_to 'Show', movie %>
-        <%  if logged_in?  %>
-        <%= link_to 'Edit', edit_movie_path(movie) %>
-        <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%  end  %>
-      </div>
-    </div>
-  </div>
+        <%  if logged_in? && movie.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_movie_path(movie), class: "movie-links" %>
+        <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "movie-links" %>
+      <%  end  %>
+    </p>
+        
+        
+        </div>
+    </div><!--mr-info-->
+    <%  end  %>
+    </li>
   <%  end  %>
-</div>
+
+</ul><!--mr-grid-->
 
 
-<%= link_to 'New Movie', new_movie_path %>
 
 <script>
   $("div.star-rating").raty({

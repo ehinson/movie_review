@@ -26,7 +26,7 @@
         
         <%  if logged_in?  %>
         
-        <li><%= link_to "New Movie", new_movie_path, class: "btn navbar-btn"  %></li>
+        <li><%= link_to "Add a Movie", new_movie_path, class: "btn navbar-btn"  %></li>
         <li><%= link_to "Sign Out", logout_path, class: "btn navbar-btn"  %></li>
         <%  else  %>
         <li><%= link_to "Sign Up", register_path, class: "btn navbar-btn"  %></li>

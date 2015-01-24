@@ -19,10 +19,158 @@
 @import "bootstrap";
 
 
-.movie-info img{
-  margin: 20px;
-}
 
 .panel {
   margin-top: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.mr-grid {
+  margin: 35px 0 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.mr-grid li {
+  position: relative;
+  float:left;
+  overflow: hidden;
+  width: 20%;
+  width: -webkit-calc(100%/5);
+  width: calc(100%/5);
+  background: #2C272A;
+  }
+
+.mr-grid  li a, 
+.mr-grid li a img.image {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.mr-grid li a img.image {
+  max-width: 100%;
+  opacity: .8;
+}
+
+
+.mr-info::before,
+.mr-info::after {
+  pointer-events: none;
+}
+
+.mr-info,
+.mr-info > a,
+.movie-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mr-info {
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: auto;
+  bottom: 0;
+  padding: 1em;
+  height: 4em;
+  color: #3c4a50;
+  background: white;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+.mr-info > a {
+  z-index: 1000;
+  background: rgba(255,255,255, .2);
+}
+
+.movie-text {
+}
+
+.movie-text a {
+  color: white;
+}
+
+li h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  float:left;
+  display: inline-block;
+  color: blue;
+}
+
+
+.movie-text p,
+.movie-text h3 {
+  margin: 0;
+}
+
+.movie-text p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+  position: absolute;
+  bottom: 8em;
+  padding: 2em;
+  color: white;
+  text-transform: none;
+  font-size: 90%;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+  -webkit-backface-visibility: hidden;
+}
+
+.movie-links{
+  float:right;
+  color: red;
+}
+.movie-links:hover{
+  font-weight: bold;
+}
+
+.movie-links, 
+.movie-text h3 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0,200%,0);
+  transform: translate3d(0,200%,0);
+}
+
+li:hover .movie-text p{
+  opacity: 1;
+  }
+
+li:hover a img.image{
+  opacity: .3;
+  }  
+
+li:hover .mr-info,
+li:hover h3,
+li:hover .movie-links {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.star-rating {
+  display: inline-block;
+  float: left;
+  clear: left;
+}
+
+li:hover h3 {
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
 }
