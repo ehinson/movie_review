@@ -1,13 +1,24 @@
+<%= render 'layouts/navigation', title: 'Movies' %>
+
+
+<div class="container">
 <div class="row">
-  <%= form_tag '/login' do  %>
-  <div>
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h1 class="sign-up text-uppercase">Sign In to Reviewerin</h1>
+     <%  flash.each do |name, msg|  %>
+        <%= content_tag(:div, msg, class: "alert alert-info")  %>
+      <%  end  %>
+  <%= form_tag '/login' , class: 'sign-in' do  %>
+  <div class="sign-in">
     <%= label_tag :username  %>
     <%= text_field_tag :username  %>
   </div>
-  <div>
+  <div class="sign-in">
     <%= label_tag :password  %>
-    <%= password_field_tag :password  %>
+    <%= password_field_tag :password %>
   </div>
-  <%= submit_tag 'Login' %>
+  <%= submit_tag 'Login', class: "button" %>
   <%  end  %>
+</div>
+</div>
 </div>

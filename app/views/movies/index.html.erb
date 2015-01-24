@@ -2,13 +2,16 @@
 
 <%  if !logged_in?  %>
 <div class ="jumbotron">
-  <h1>Your Favorite Movies. Reviewed.</h1>
-  <p>"Who would have thought it, Flask!" cried Stubb; "if I had but one leg you would not catch me in a boat, unless maybe to stop the plug-hole with my timber toe. Oh! he's a wonderful old man!"</p>
-  <p><%= link_to "Sign Up & Write a Review", new_user_path, class: "btn btn-primary btn-lg"  %></p>
+  
+  <h1 class="text-center">Your Favorite Movies. Reviewed.</h1>
+
+  <p class="text-center"><%= link_to "Sign Up & Write a Review", new_user_path, class: "btn btn-primary btn-lg"  %></p>
 </div>
+
+
 <%  end  %>
 
-   <ul class="mr-grid">
+  <ul class="mr-grid">
   <% @movies.each do |movie| %>
        <li>
          <%= link_to movie_path(movie) do %>
