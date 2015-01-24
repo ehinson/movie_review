@@ -18,20 +18,125 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container-fluid {
+  text-align: center;
+}
+
 .navbar {
-  background: rgba(255,255,255,.6);
+  background: rgba(255,255,255,1);
   border: none;
+  border-radius: 0;
+  height: 200px;
+
+}
+
+.navbar-header {
+  width: 160px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 20px;
+  float: none;
+  display: block;
+  color: black;
+}
+
+.navbar > .container .navbar-brand, 
+.navbar > .container-fluid .navbar-brand {
+  margin-left: 0px !important;
+}
+
+.review-title,
+.navbar-default .navbar-brand,
+a.navbar-brand {
+  color: black;
+  border: solid 3px black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.navbar-nav {
+  float:none;
+  text-align: center;
+}
+
+.navbar-collapse {
+  text-align: center;
+}
+
+.navbar li {
+  float: none;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: inline-block;
+  }
+
+.navbar-form input.btn,
+.navbar-form input.btn:focus {
+  border: none;
+  background: none;
+  padding-bottom: 0;
+  vertical-align: bottom;
+}
+
+.navbar-form input.btn:hover {
+  font-weight: bold;
+}
+
+.form-control, 
+.form-control:focus {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  background: none;
+}
+
+.form-control:focus {
+  background-color: whitesmoke;
+  border-bottom: red 1px solid;
+}
+
+.navbar-text a,
+.navbar-text a:hover {
+  color: red;
+}
+
+.navbar-text{
+  position: absolute;
+  top: 0;
+}
+a.navbar-btn {
+  margin:0;
+}
+
+.navbar-form input.btn:focus, 
+a.navbar-btn:focus{
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  outline:none;
+}
+
+.jumbotron {
+  padding: 50px;
 }
 
 body {
-  margin-top: 50px;
+  margin-top: 200px;
   font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+}
 
-
+.btn {
+    font-weight: 100;
 }
 
 .panel {
   margin-top: 20px;
+  border-radius: 0;
 }
 
 a:hover {
@@ -156,14 +261,6 @@ li h3 {
 
 }
 
-.movie-links{
-  float:right;
-  color: red;
-}
-.movie-links:hover{
-  font-weight: bold;
-}
-
 .movie-links, 
 .movie-text h3 {
   -webkit-transition: -webkit-transform 0.35s;
@@ -189,11 +286,38 @@ li:hover .movie-links {
 
 .star-rating {
   display: inline-block;
-  float: left;
-  clear: left;
+  margin: 10px;
 }
 
 li:hover h3 {
   -webkit-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
+
+.inline {
+  display: inline;
+}
+
+
+.mr-grid li a.movie-links{
+  display: inline;
+}
+a.movie-links:hover{
+  font-weight: bold;
+}
+.row {
+  margin-top: 20px;
+}
+
+.review-title {
+  padding: 15px;
+  font-size: 1.5em;
+  clear:right;
+  display: block;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+

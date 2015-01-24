@@ -17,8 +17,8 @@
            <div class="movie-text">
         <h3><%= movie.title.truncate(30, separator: /\s/, omission: '...') %></h3>
         <p><%= movie.description.truncate(50, separator: /\s/, omission: '...(more)') %><br>
-        <%= movie.movie_length %> 
-        <%= movie.director %> 
+        <%= movie.movie_length %> | 
+        <%= movie.director %> | 
         <%= movie.rating %><br>
         <%  if logged_in? && movie.user_id == current_user.id %>
         <%= link_to 'Edit', edit_movie_path(movie), class: "movie-links" %>
