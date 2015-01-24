@@ -18,7 +18,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar {
+  background: rgba(255,255,255,.6);
+  border: none;
+}
 
+body {
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+
+
+}
 
 .panel {
   margin-top: 20px;
@@ -84,7 +94,7 @@ a:hover {
   top: auto;
   bottom: 0;
   padding: 1em;
-  height: 4em;
+  height: 6em;
   color: #3c4a50;
   background: white;
   -webkit-transition: -webkit-transform 0.35s;
@@ -92,6 +102,7 @@ a:hover {
   -webkit-transform: translate3d(0,100%,0);
   transform: translate3d(0,100%,0);
 }
+
 .mr-info > a {
   z-index: 1000;
   background: rgba(255,255,255, .2);
@@ -105,11 +116,16 @@ a:hover {
 }
 
 li h3 {
-  font-weight: 300;
+  font-weight: 700;
   text-transform: uppercase;
   float:left;
   display: inline-block;
-  color: blue;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 2em;
+  line-height: 1.75em;
 }
 
 
@@ -119,8 +135,13 @@ li h3 {
 }
 
 .movie-text p {
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  line-height: 1.75em;
+  font-weight: 100;
   letter-spacing: 1px;
-  font-size: 68.5%;
   position: absolute;
   bottom: 8em;
   padding: 2em;
@@ -131,6 +152,8 @@ li h3 {
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
   -webkit-backface-visibility: hidden;
+  font-size: 68.5%;
+
 }
 
 .movie-links{
