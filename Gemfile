@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+gem 'pg'
+
 gem 'searchkick', '~> 0.8.5'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-rails', '~> 4.2.0.0'
 gem 'paperclip', '~> 4.2'
-gem 'pry'
 gem 'bcrypt-ruby', '~> 3.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
-# Use sqlite3 as the database for Active Record
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -47,6 +48,8 @@ group :production do
 end
 
 group :development, :test do
+  gem 'pry'
+
  gem 'sqlite3'
 end
 
