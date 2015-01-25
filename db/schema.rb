@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20150125025500) do
     t.string   "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

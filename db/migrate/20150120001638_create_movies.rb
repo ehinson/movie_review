@@ -7,7 +7,6 @@ class CreateMovies < ActiveRecord::Migration
       t.string :director
       t.string :rating
       t.string :image
-      t.integer :user_id
 
       t.timestamps
     end
