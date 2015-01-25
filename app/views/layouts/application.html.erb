@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title></title>
-
+    <title>Reviewerin | A Movie Review Website by Erin (Q.) Hinson </title>
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,400' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    :application %>
     <%= javascript_include_tag "application" 'data-turbolinks-track' => true %>
     <script type="text/javascript" src="/assets/jquery.js"></script>
@@ -14,13 +14,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <%  flash.each do |name, msg|  %>
-        <%= content_tag(:div, msg, class: "alert alert-info")  %>
-      <%  end  %>
+     
 
     <%= yield %>
 
-    </div>
   </body>
 </html>

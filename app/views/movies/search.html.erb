@@ -1,17 +1,7 @@
 <%= render 'layouts/navigation', title: 'Movies' %>
 
-<%  if !logged_in?  %>
-<div class ="jumbotron">
-  
-  <h1 class="text-center">Your Favorite Movies. Reviewed.</h1>
 
-  <p class="text-center"><%= link_to "Sign Up & Write a Review", new_user_path, class: "btn btn-primary btn-lg"  %></p>
-</div>
-
-
-<%  end  %>
-
-  <ul class="mr-grid">
+ <ul class="mr-grid">
   <% @movies.each do |movie| %>
        <li>
          <%= link_to movie_path(movie) do %>
@@ -38,14 +28,3 @@
 
 </ul><!--mr-grid-->
 
-
-
-<script>
-  $("div.star-rating").raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-</script>

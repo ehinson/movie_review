@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
       redirect_to root_path
 
     else
-      flash.now[:error] = "Never forget what you are, for surely the world will not. Make it your strength. Then it can never be your weakness. Armour yourself in it, and it will never be used to hurt you. Try to remember your correct username or password."
-      render :new
+      flash[:error] = "Never forget what you are, for surely the world will not. Make it your strength. Then it can never be your weakness. Armour yourself in it, and it will never be used to hurt you....Try to remember your correct username or password."
+      redirect_to login_path
     end
   end
 

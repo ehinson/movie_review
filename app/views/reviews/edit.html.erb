@@ -1,6 +1,16 @@
-<h1>Editing review</h1>
+<%= render 'layouts/navigation', title: 'Movies' %>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <h1 class="sign-up text-uppercase">Editing review</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @movie %> |
-<%= link_to 'Back', movie_path(@movie) %>
+<%= link_to @movie, class: "gray button" do %> 
+  Back to <%=  @movie.title  %>
+<%  end  %>
+</div>
+</div>
+</div>

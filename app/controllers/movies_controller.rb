@@ -5,18 +5,18 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    @movie = current_user.movies.build
+    # @reviews = Review.where(movie_id: @movie.id)
 
-    @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
-    
-    if @reviews.blank?
-      @avg_review = 0
-    else
-      @avg_review = @reviews.average(:rating).round(2)
-    end
+    # if @reviews.blank?
+    #   @avg_review = 0
+    # else
+    #   @avg_review = @reviews.average(:rating).round(2)
+    # end
+
   end
 
   def show
+    @title = @movie.title
     @reviews = Review.where(movie_id: @movie.id).order("created_at DESC")
     
     if @reviews.blank?

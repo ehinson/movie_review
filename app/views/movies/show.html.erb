@@ -1,3 +1,4 @@
+<%= render 'layouts/navigation', title: 'Movies' %>
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
@@ -9,18 +10,11 @@
               <tr>
                 <td><strong>Title:</strong></td>
                 <td><%= @movie.title  %>
-                  <div class="star-rating" data-score= <%= @avg_review %>>
-                   <%= @reviews.length  %>
-                   <% if @reviews.length == 1 %>
-                     review
-                     <%  else  %>
-                     reviews
-                     <%  end  %>
-                 </div>
+
                 </td>
               </tr>
-                <td><strong>Rating:</strong></td>
-                <td><%= @movie.rating %></td>
+              <td><strong>Rating:</strong></td>
+              <td><%= @movie.rating %></td>
               <tr>
                 <td><strong>Description:</strong></td>
                 <td><%= @movie.description %></td>
@@ -39,47 +33,59 @@
 
       </div>
       <div class="col-md-7 col-md-offset-1">
-        <h1 class="review-title"><%= @movie.title  %></h1>
-        <p><%= @movie.description  %></p>
-        <%  if @reviews.blank?  %>
-          <h3>There are no reviews yet. Would you like to <%= link_to new_movie_review_path(@movie) do %> add the first? <%  end  %></h3>
-        <%  else  %>
-          <%  @reviews.each do |review|  %>
-            <div class="reviews">
-              <div class = "star-rating" data-score = <%= review.rating %> ></div>
-             
-              <p><%= review.comment %></p>
-              <p><%= review.user.username %></p>
-              
-            </div>
-            <%  end  %>
-        <%  end  %>
+        <h1 class="review-title inline"><%= @movie.title  %></h1>
+        <div class="star-rating inline" data-score= <%= @avg_review %>>
+         <%= @reviews.length  %>
+         <% if @reviews.length == 1 %>
+         review
+         <%  else  %>
+         reviews
+         <%  end  %>
+       </div>
+       <p class = "description"><%= @movie.description  %></p>
+
+       <%  if @reviews.blank?  %>
+       <p>There are no reviews yet. Would you like to <%= link_to new_movie_review_path(@movie) do %> add the first? <%  end  %></p>
+       <%  else  %>
+       <%  @reviews.each do |review|  %>
+       <div class="reviews">
+        <hr>
+        <div class = "star-rating pull-left clearfix" data-score = <%= review.rating %> ></div>
+
+        <p ><%= review.comment %> -- <%= review.user.username %></p>
+
+
       </div>
+      <%  end  %>
+      <%  end  %>
+
+      <%  if logged_in?  %>
+      <div class="add-review">
+      <%= link_to 'Write a Review', new_movie_review_path(@movie)  %>
+      <%  end  %>
+      <%  if logged_in? && current_user.id == @movie.user_id  %>
+      <%= link_to 'Edit', edit_movie_path(@movie), class: "button" %>
+      <%  end  %> |
+      <%= link_to 'Back', movies_path, class: "button" %>
+     </div>
     </div>
   </div>
+</div>
 </div>
 
 
 <p>
-  <strong>User:</strong>
+  <strong>Added By:</strong>
   <%= @movie.user.username %>
 </p>
 
-<%  if logged_in?  %>
-<%= link_to 'Write a Review', new_movie_review_path(@movie)  %>
-<%  end  %>
-<%  if current_user.id == @movie.user_id  %>
-<%= link_to 'Edit', edit_movie_path(@movie) %>
-<%  end  %> |
-<%= link_to 'Back', movies_path %>
-
 
 <script>
-  $("div.star-rating").raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
+$("div.star-rating").raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
 </script>
