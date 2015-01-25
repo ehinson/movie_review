@@ -1,15 +1,14 @@
 <%= render 'layouts/navigation', title: 'Movies' %>
-<%= render 'layouts/content_title', title: @title %>
 
-<h1>New review: <%= @movie.title  %></h1>
+
 
 <div class="col-md-4 text-center">
   <%= image_tag @movie.image.url(:medium) %>
 </div>
 <div class="col-md-7 col-md-offset-1">
+  <h1 class="review-title inline">New review: <%= @movie.title  %></h1>
   <%= render 'form' %>
 </div>
 
 </div>
 
-<%= link_to 'Back', movie_path(@movie) %>
