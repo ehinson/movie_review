@@ -24,14 +24,26 @@
 
 .container {
   margin-bottom: 100px;
+  width: 100%;
+  max-width: 1100px;
+   height: 100%;
+   margin-bottom: 0;
+}
+
+.row {
+  background: whitesmoke;
+  opacity: .8;
+  padding: 30px;
 }
 
 .navbar {
-  background: rgba(255,255,255,.9);
+  background: rgb(255,255,255);
   border: none;
   border-radius: 0;
   height: 200px;
-
+  -webkit-box-shadow: 0 2px 10px 4px #C6CCC0;
+  -moz-box-shadow: 0 2px 10px 4px #C6CCC0;
+  box-shadow: 0 2px 10px 4px #C6CCC0;
 }
 
 .navbar-header {
@@ -85,7 +97,8 @@ a.navbar-brand {
   vertical-align: bottom;
 }
 
-.navbar-form input.btn:hover {
+.navbar-form input.btn:hover,
+.navbar-form input.btn:active {
   font-weight: bold;
 }
 
@@ -109,7 +122,8 @@ a.navbar-brand {
 
 
 .navbar-text a,
-.navbar-text a:hover {
+.navbar-text a:hover,
+.navbar-text a:active {
   color: red;
 }
 
@@ -137,7 +151,7 @@ a.navbar-btn:focus{
   padding: 50px;
   color: white;
   text-shadow: black;
-  background: url("/assets/vintage-film.png") no-repeat center center;
+  background: url("/assets/vintage-film.png") no-repeat center center fixed;
   background-size: cover;
   margin-bottom: 0;
   position: relative;
@@ -181,7 +195,8 @@ body {
   border-radius: 0;
 }
 
-a:hover {
+a:hover,
+a:active {
   text-decoration: none;
   color: white;
   font-weight: bolder;
@@ -203,6 +218,7 @@ a:hover {
   width: -webkit-calc(100%/5);
   width: calc(100%/5);
   background: #2C272A;
+  border: 7px solid white;
   }
 
 .mr-grid  li a, 
@@ -311,17 +327,22 @@ li h3 {
   transform: translate3d(0,200%,0);
 }
 
-li:hover .movie-text p{
+li:hover .movie-text p,
+li:active .movie-text p {
   opacity: 1;
   }
 
-li:hover a img.image{
+li:hover a img.image,
+li:active a img.image{
   opacity: .3;
   }  
 
 li:hover .mr-info,
 li:hover h3,
-li:hover .movie-links {
+li:hover .movie-links,
+li:active .mr-info,
+li:active h3,
+li:active .movie-links {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
@@ -331,7 +352,8 @@ li:hover .movie-links {
   margin-right: 10px;
 }
 
-li:hover h3 {
+li:hover h3,
+li:active h3 {
   -webkit-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
@@ -447,4 +469,122 @@ textarea {
 a.button {
   color: darkgray;
 }
+
+.p0 {
+  padding: 0;
+}
+
+.m0 {
+  margin: 0;
+}
+.table {
+  display: table;
+  border-collapse: collapse;
+}
+.td {
+  display: table-cell;
+}
+
+.tr {
+  display: table-row;
+}
+
+.td {
+  padding: 10px;
+}
+
+.tr {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 800px) {
+  .mr-grid li {
+    position: relative;
+    float:left;
+    overflow: hidden;
+    width: 33.3333333333%;
+    width: -webkit-calc(100%/3);
+    width: calc(100%/3);
+    background: #2C272A;
+  }
+
+  .navbar-collapse.collapse {
+    display: block!important;
+    visibility: visible !important;
+  }
+
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px !important;
+  }
+
+  .navbar-right {
+    float: right!important;
+  }
+
+  .navbar-default,
+  .navbar-default .navbar-collapse, 
+  .navbar-default .navbar-form {
+    border: none !important;
+  }
+
+  .navbar-default {
+    border: none !important;
+  }
+
+  .navbar-form {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  input.btn-default {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mr-grid li {
+    position: relative;
+    float:left;
+    overflow: hidden;
+    width: 50%;
+    width: -webkit-calc(100%/2);
+    width: calc(100%/2);
+    background: #2C272A;
+  }
+  
+  .navbar-collapse.collapse {
+    display: block!important;
+    visibility: visible !important;
+  }
+
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px !important;
+  }
+
+  .navbar-right {
+    float: right!important;
+  }
+
+  .navbar-default,
+  .navbar-default .navbar-collapse, 
+  .navbar-default .navbar-form {
+    border: none !important;
+  }
+
+  .navbar-default {
+    border: none !important;
+  }
+
+  .navbar-form {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  input.btn-default {
+    padding-bottom: 20px;
+  }
+
+}
+
 

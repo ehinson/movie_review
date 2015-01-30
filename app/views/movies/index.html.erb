@@ -1,5 +1,5 @@
 <%= render 'layouts/navigation', title: 'Movies' %>
-
+<div class="parallax">
 <%  if !logged_in?  %>
 <div class ="jumbotron">
   
@@ -10,36 +10,34 @@
 
 
 <%  end  %>
+  <div class = "scroll">
+    <ul class="mr-grid">
+      <% @movies.each do |movie| %>
+        <li>
+          <%= link_to movie_path(movie) do %>
+            <%=image_tag movie.image.url(:medium), class: "image img-responsive" %>
+              <div class="mr-info">
+                <div class="movie-text">
+                  <h3><%= movie.title.truncate(30, separator: /\s/, omission: '...') %></h3>
+                  <p><%= movie.description.truncate(50, separator: /\s/, omission: '...(more)') %><br>
+                  <%= movie.movie_length %> | 
+                  <%= movie.director %> | 
+                  <%= movie.rating %><br>
+                  <%  if logged_in? && movie.user_id == current_user.id %>
+                    <%= link_to 'Edit', edit_movie_path(movie), class: "movie-links" %>
+                    <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "movie-links" %>
+                  <%  end  %>
+                  </p>
+              </div><!--movie-text-->
+            </div><!--mr-info-->
+          <%  end  %><!--link_to-->
+        </li>
+      <%  end  %><!--@movies.each-->
+    </ul><!--mr-grid-->
+  </div><!--scroll-->
+</div><!--parallax-->
 
-  <ul class="mr-grid">
-  <% @movies.each do |movie| %>
-       <li>
-         <%= link_to movie_path(movie) do %>
-           <%=image_tag movie.image.url(:medium), class: "image" %>
-           <div class="mr-info">
-           <div class="movie-text">
-        <h3><%= movie.title.truncate(30, separator: /\s/, omission: '...') %></h3>
-        <p><%= movie.description.truncate(50, separator: /\s/, omission: '...(more)') %><br>
-        <%= movie.movie_length %> | 
-        <%= movie.director %> | 
-        <%= movie.rating %><br>
-        <%  if logged_in? && movie.user_id == current_user.id %>
-        <%= link_to 'Edit', edit_movie_path(movie), class: "movie-links" %>
-        <%= link_to 'Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "movie-links" %>
-      <%  end  %>
-    </p>
-        
-        
-        </div>
-    </div><!--mr-info-->
-    <%  end  %>
-    </li>
-  <%  end  %>
-
-</ul><!--mr-grid-->
-
-
-
+<!--Display Star Ratings-->
 <script>
   $("div.star-rating").raty({
     path: '/assets/',

@@ -3,32 +3,28 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4 text-center">
-        <%= image_tag @movie.image.url(:medium) %>
+        <%= image_tag @movie.image.url(:medium), class: "image img-responsive"  %>
         <div class="table-responsive">
-          <table class="table text-left">
-            <tbody>
-              <tr>
-                <td><strong>Title:</strong></td>
-                <td><%= @movie.title  %>
-
-                </td>
-              </tr>
-              <td><strong>Rating:</strong></td>
-              <td><%= @movie.rating %></td>
-              <tr>
-                <td><strong>Description:</strong></td>
-                <td><%= @movie.description %></td>
-              </tr>
-              <tr>
-                <td><strong>Movie length:</strong></td>
-                <td><%= @movie.movie_length %></td>
-              </tr>
-              <tr>
-                <td><strong>Director:</strong></td>
-                <td><%= @movie.director %></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table text-left">
+              <div class="tr">
+                <div class="td"><strong>Title:</strong></div>
+                <div class="td"><%= @movie.title  %></div>
+              </div>
+              <div class="td"><strong>Rating:</strong></div>
+              <div class="td"><%= @movie.rating %></div>
+              <div class="tr">
+                <div class="td"><strong>Description:</strong></div>
+                <div class="td"><%= @movie.description %></div>
+              </div>
+              <div class="tr">
+                <div class="td"><strong>Movie length:</strong></div>
+                <div class="td"><%= @movie.movie_length %></div>
+              </div>
+              <div class="tr">
+                <div class="td"><strong>Director:</strong></div>
+                <div class="td"><%= @movie.director %></div>
+              </div>
+          </div>
         </div>
 
       </div>
